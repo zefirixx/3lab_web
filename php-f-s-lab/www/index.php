@@ -1,5 +1,15 @@
 <?php session_start(); ?>
 
+<?php if(isset($_SESSION['errors'])): ?>
+    <ul style="color:red;">
+        <?php foreach($_SESSION['errors'] as $error): ?>
+            <li><?= $error ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php unset($_SESSION['errors']); ?>
+<?php endif; ?>
+
+
 <?php if(isset($_SESSION['formData'])): ?>
     <p>Данные из сессии:</p>
     <ul>
